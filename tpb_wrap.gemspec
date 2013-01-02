@@ -32,7 +32,10 @@ Gem::Specification.new do |s|
     "lib/tpb_wrap/source.rb",
     "spec/spec_helper.rb",
     "spec/tpb_wrap_spec.rb",
-    "vol/media_test.rb"
+    "tpb_wrap.gemspec",
+    "vol/media_test.rb",
+    "vol/oauth_test.rb",
+    "vol/put_pirate_combined_test.rb"
   ]
   s.homepage = "http://github.com/mharris717/tpb_wrap"
   s.licenses = ["MIT"]

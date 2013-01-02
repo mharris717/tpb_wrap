@@ -16,3 +16,5 @@ end
 gem 'mharris_ext'
 gem 'nokogiri'
 gem 'lre'
+gem 'oauth'
+gem 'patron'

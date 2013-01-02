@@ -3,7 +3,10 @@ module TpbWrap
     include FromHash
     attr_accessor :page_url
     def page_url=(url)
-      url = "http://thepiratebay.se#{url}" unless url =~ /http/
+      unless url =~ /http/
+        url = url.to_s.split("/")[0..2].join("/")
+        url = "http://thepiratebay.se#{url}" 
+      end
       @page_url = url
     end
     fattr(:doc) do

@@ -18,5 +18,12 @@ module TpbWrap
     fattr(:magnet_url) do
       doc.css("div.download a").first.attribute('href')
     end
+    def category
+      a = doc.css("a").find { |x| x.attribute("title").to_s.strip.downcase == 'more from this category' }
+      a.text()
+    end
+    def title
+      doc.css("div#title").first.text().strip
+    end
   end
 end

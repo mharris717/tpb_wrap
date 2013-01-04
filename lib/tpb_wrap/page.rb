@@ -3,7 +3,7 @@ module TpbWrap
     include FromHash
     attr_accessor :body
     def url=(url)
-      self.body = open(url).read
+      self.body = get_cached_body(url)
     end
     fattr(:doc) do
       Nokogiri::HTML(body)

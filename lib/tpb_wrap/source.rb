@@ -13,7 +13,7 @@ module TpbWrap
       Nokogiri::HTML(page_body)
     end
     fattr(:page_body) do
-      open(page_url)
+      get_cached_body(page_url)
     end
     fattr(:magnet_url) do
       doc.css("div.download a").first.attribute('href')

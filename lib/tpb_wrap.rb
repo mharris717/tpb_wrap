@@ -3,7 +3,7 @@ require 'mharris_ext'
 require 'open-uri'
 require 'oauth'
 
-%w(page source media).each do |f|
+%w(cache page source media).each do |f|
   load File.expand_path(File.dirname(__FILE__)) + "/tpb_wrap/#{f}.rb"
 end
 

@@ -9,7 +9,7 @@ end
 
 def get_cached_body(url)
   require 'open-uri'
-  if ENV['nocache']
+  if ENV['TPB_NOCACHE']
     open(url).read
   else
     get_cached_body_inner(url)

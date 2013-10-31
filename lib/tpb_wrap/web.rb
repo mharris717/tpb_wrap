@@ -21,7 +21,7 @@ module TpbWrap
 
     get "/link/:name" do
       s = media.first_source
-      "<a href=\"#{s.magnet_url}\">#{s.title}</a>"
+      "<h2>Link to torrent for #{params[:name]}</h2><a href=\"#{s.magnet_url}\">#{s.title}</a>"
     end
   end
 end

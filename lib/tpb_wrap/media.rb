@@ -6,8 +6,11 @@ module TpbWrap
       n = URI::encode(name)
       "http://thepiratebay.se/search/#{n}/0/7/0"
     end
+    fattr(:page) do
+      Page.new(:url => search_url)
+    end
     fattr(:first_source) do
-      Page.new(:url => search_url).first_source
+      page.first_source
     end
     
     def magnet_url
@@ -21,6 +24,13 @@ module TpbWrap
     end
     def source_title
       first_source.title
+    end
+
+    def as_json(*args)
+      first_source.as_json(*args)
+    end
+    def to_json(*args)
+      as_json(*args).to_json
     end
   end
 end

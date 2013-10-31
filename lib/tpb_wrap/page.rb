@@ -8,9 +8,20 @@ module TpbWrap
     fattr(:doc) do
       Nokogiri::HTML(body)
     end
+    fattr(:sources) do
+      source_rows.map do |row|
+        Source.from_row(row)
+      end
+    end
+
+    def source_rows
+      doc.css("table#searchResult tr").select do |row|
+        row.css("a.detLink").size > 0
+      end
+    end
+
     def first_source
-      link = doc.css("a.detLink").first
-      Source.new(:page_url => link.attribute("href"))
+      sources.first
     end
   end
 end
